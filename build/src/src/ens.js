@@ -2,6 +2,7 @@ const Eth = require("ethjs");
 const decodeContent = require("./utils/decodeContent");
 const decodeContentHash = require("./utils/decodeContentHash");
 const computeNode = require("./utils/computeNode");
+const getInstalledEthNode = require("./utils/getInstalledEthNode");
 
 /**
  * ENS parameters
@@ -23,12 +24,15 @@ const interfaces = [
   CONTENT_INTERFACE_ID
 ];
 
-const eth = new Eth(new Eth.HttpProvider(ethProvider));
-console.log("Connected web3 to " + ethProvider);
 
-// Cache ENS contract instance
-const ens = eth.contract(ensAbi).at(ensAddr);
-const Resolver = eth.contract(resolverAbi);
+let eth,ens,Resolver;
+
+// const eth = new Eth(new Eth.HttpProvider(ethProvider));
+// console.log("Connected web3 to " + ethProvider);
+
+// // Cache ENS contract instance
+// const ens = eth.contract(ensAbi).at(ensAddr);
+// const Resolver = eth.contract(resolverAbi);
 
 /**
  * Resolves a request for an ENS domain iterating over various methods
@@ -41,6 +45,20 @@ const Resolver = eth.contract(resolverAbi);
  */
 async function getContent(name) {
   console.log("Requested: " + name);
+
+  if(!eth){
+
+    const endpoint = await getInstalledEthNode();
+    eth = new Eth(new Eth.HttpProvider(endpoint));
+    console.log("Connected web3 to " + ethProvider);
+    
+    // Cache ENS contract instance
+    ens = eth.contract(ensAbi).at(ensAddr);
+    Resolver = eth.contract(resolverAbi);
+    
+  }
+
+
 
   try {
     if (!(await isListening())) throw Error("Network is not listening");

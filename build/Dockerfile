@@ -17,9 +17,9 @@ COPY src/package.json .
 COPY src/package-lock.json .
 RUN npm install --production
 
-RUN npm install -D webpack webpack-cli
+# RUN npm install -D webpack webpack-cli
 COPY src .
-RUN npm run bundle
+# RUN npm run bundle
 
 # This results in a single layer image
 FROM alpine
@@ -28,8 +28,8 @@ WORKDIR /usr/src/app
 
 RUN apk add --update nodejs
 
-COPY --from=build /usr/src/app/bundle.js /usr/src/app
+COPY --from=build /usr/src/app /usr/src/app
 COPY --from=build /usr/src/app/src/views /usr/src/app
 ENV HTMLS_PATH=/usr/src/app
 
-ENTRYPOINT node /usr/src/app/bundle.js
+ENTRYPOINT node /usr/src/app/src/index.js

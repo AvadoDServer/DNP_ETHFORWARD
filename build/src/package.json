@@ -13,6 +13,7 @@
   ],
   "license": "GPL-3.0",
   "dependencies": {
+    "autobahn": "^19.12.1",
     "cids": "^0.7.1",
     "ethjs": "^0.4.0",
     "http-proxy": "^1.17.0",

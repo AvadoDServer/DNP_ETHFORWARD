@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require("path");
 module.exports = {
   mode: "production",
@@ -8,5 +9,8 @@ module.exports = {
   output: {
     path: path.resolve(__dirname),
     filename: "bundle.js"
-  }
+  },
+  plugins: [
+    new webpack.IgnorePlugin(/vertx/)
+  ]
 };

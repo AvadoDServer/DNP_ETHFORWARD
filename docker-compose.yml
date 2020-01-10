@@ -9,7 +9,7 @@ networks:
 services:
     ethforward.dnp.dappnode.eth:
         build: ./build
-        image: 'ethforward.dnp.dappnode.eth:0.2.2'
+        image: 'ethforward.dnp.dappnode.eth:10.0.1'
         container_name: DAppNodeCore-ethforward.dnp.dappnode.eth
         restart: always
         dns: 172.33.1.2

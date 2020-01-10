@@ -1,38 +1,29 @@
 {
   "name": "ethforward.dnp.dappnode.eth",
-  "version": "0.2.3",
-  "description": "Dappnode package responsible for providing .eth address resolve through ENS",
-  "avatar": "/ipfs/QmX2VK8wUfUfXetnCbYqhR6hwLV8W6XLcxRBRFWZhNq1tN",
-  "type": "dncore",
+  "version": "10.0.1",
+  "description": "Package responsible for providing .eth address resolve through ENS",
+  "avatar": "/ipfs/QmYrFmGVqJSh7PWdKATMf2TjqBCtwHjxt4Fm6w9iDLbzT5",
+  "type": "service",
   "image": {
-    "path": "",
-    "hash": "",
-    "size": "",
+    "path": "ethforward.dnp.dappnode.eth_10.0.1.tar.xz",
+    "hash": "/ipfs/QmRJHjZ4Gimkv7CWnuvQmBzRNFFuLCxwBJ7KCCb1YaWYyo",
+    "size": 11955318,
     "restart": "always",
     "subnet": "172.33.0.0/16",
     "ipv4_address": "172.33.1.3",
     "environment": [
-      "PIN_CONTENT_ON_VISIT="
+      "PIN_CONTENT_ON_VISIT=",
+      "WEB3PROVIDERS=ethchain-geth.public.dappnode.eth,ethchain.dnp.dappnode.eth,avado-dnp-nethermind.public.dappnode.eth"
     ]
   },
-  "author": "DAppNode Association <admin@dappnode.io> (https://github.com/dappnode)",
+  "author": "AVADO",
   "contributors": [
+    "Stefaan Ponnet",
     "Eduardo Antuña <eduadiez@gmail.com> (https://github.com/eduadiez)"
   ],
   "keywords": [
-    "DAppNodeCore",
     "ETHFORWARD",
     "ENS"
   ],
-  "links": {
-    "homepage": "https://github.com/dappnode/DNP_ETHFORWARD#readme"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/dappnode/DNP_ETHFORWARD"
-  },
-  "bugs": {
-    "url": "https://github.com/dappnode/DNP_ETHFORWARD/issues"
-  },
   "license": "GPL-3.0"
 }
